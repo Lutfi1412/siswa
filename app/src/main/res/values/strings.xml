@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">siswa</string>
+    <string name="login">Halaman Login</string>
+    <string name="profile">Profile Pengguna</string>
+    <string name="judulkelas">Matematika Dasar</string>
+    <string name="instruksi"> 4. Click "Submit" when you are done.</string>
+    <string name="detailclass">Dalam pelajaran ini, kita akan membahas dasar-dasar pemrograman Python, termasuk variabel, tipe data, kontrol alur, fungsi, dan modul. Pelajaran ini dirancang untuk pemula yang ingin memulai karir di bidang</string>
+    <string name="loginchild">Selamat datang di aplikasi kami. Silakan masuk dengan nama pengguna dan kata sandi Anda untuk melanjutkan.</string>
+</resources>
