@@ -1,3 +1,5 @@
+package com.example.siswa.asests.db
+
 import android.util.Log
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -8,39 +10,31 @@ import io.ktor.client.request.setBody
 import io.ktor.http.HttpHeaders
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.util.InternalAPI
-import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
-@Serializable
-data class LoginRequest(val username: String, val password: String)
-
-@Serializable
-data class LoginResponse(val token: String)
-
 @OptIn(InternalAPI::class)
-suspend fun login(username: String, password: String): String? {
+suspend fun validateToken(token: String): Boolean {
     val client = HttpClient {
         install(ContentNegotiation) {
             json(Json { ignoreUnknownKeys = true })
         }
     }
 
-    val url = "https://mimath-auth.vercel.app/api/auth/login" // Gunakan constant
+    val url = "https://mimath-auth.vercel.app/api/auth/validate" // Gunakan constant
 
     return try {
-        val loginRequest = LoginRequest(username, password)
-        val response: LoginResponse = client.post(url) {
+        val response = client.post(url) {
             headers {
                 append(HttpHeaders.ContentType, "application/json")
+                append(HttpHeaders.Authorization, "Bearer $token")
             }
-            setBody(loginRequest) // Menggunakan setBody
-        }.body()
+        }
+        Log.d("is token valid", "validateToken: ${response.status.value == 200}")
 
-        Log.d("response.token", response.token)
-        response.token
+        response.status.value == 200
     } catch (e: Exception) {
         Log.e("LoginError", "Login failed: ${e.message}", e)
-        null
+        false
     } finally {
         client.close()
     }
