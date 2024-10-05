@@ -16,10 +16,15 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
+import coil.compose.AsyncImage
+import coil.compose.rememberAsyncImagePainter
+import coil.compose.rememberImagePainter
+import coil.request.ImageRequest
 import com.example.siswa.R
 import com.example.siswa.ui.theme.SiswaTheme
 
@@ -50,6 +55,31 @@ fun ImageLogoB(
         modifier = modifier,
         alignment = Alignment.Center,
         contentScale = contentScale
+    )
+}
+
+
+//@Composable
+//fun ImageUrl() {
+////    url: String, contentDescription: String?, modifier: Modifier = Modifier, contentScale: ContentScale
+//    Image(
+//        painter = rememberAsyncImagePainter(model = "https://drive.google.com/file/d/1qE-CKMG71aKKeNt-2FRaxxPP6q0QsLGf/view?usp=sharing"),
+//        contentDescription = "jayy",
+////        modifier = modifier,
+////        contentScale = contentScale
+//    )
+//}
+
+@Composable
+fun GetUrlImg(url: String, modifier: Modifier = Modifier, contentScale: ContentScale){
+    AsyncImage(
+        model = ImageRequest.Builder(LocalContext.current)
+            .data(url)
+            .crossfade(true)
+            .build(),
+        contentDescription = "Slider",
+        contentScale = contentScale,
+        modifier = modifier,
     )
 }
 

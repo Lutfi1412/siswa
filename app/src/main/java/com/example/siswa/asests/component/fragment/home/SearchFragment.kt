@@ -9,8 +9,6 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -21,20 +19,21 @@ import com.example.siswa.ui.theme.Routes
 @Composable
 fun Search(
     modifier: Modifier,
-    navController:NavController
+    navController:NavController,
+    searchState : String,
+    onSearchQueryChange: (String) -> Unit
 ){
-    val searchState = remember { mutableStateOf("") }
     Row(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically
     ) {
         kolominputB(
-            value = searchState.value,
+            value = searchState,
             leadingIcon = { Icon(Icons.Filled.Search, contentDescription = "search") },
-            onValueChange = { searchState.value = it },
+            onValueChange = { onSearchQueryChange (it) },
             trailingIcon = {
-                if (searchState.value.isNotEmpty()) {
-                    IconButton(onClick = { searchState.value = "" }) {
+                if (searchState.isNotEmpty()) {
+                    IconButton(onClick = { onSearchQueryChange("") }) {
                         Icon(Icons.Filled.Cancel, contentDescription = "cancel Search")
                     }
                 }

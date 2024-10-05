@@ -1,10 +1,13 @@
 package com.example.siswa.asests.component.element
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Cancel
 import androidx.compose.material.icons.filled.Person
@@ -26,6 +29,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -194,6 +198,17 @@ fun kolominputB(
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
             disabledIndicatorColor = Color.Transparent
+        ),
+        keyboardOptions = KeyboardOptions.Default.copy(
+            imeAction = ImeAction.Search // Ubah tombol "Enter" menjadi ikon kaca pembesar
+        ),
+        // Tambahkan properti keyboardActions untuk menangani aksi pencarian
+        keyboardActions = KeyboardActions(
+            onSearch = {
+                // Aksi yang dilakukan saat tombol "Search" ditekan
+                Log.d("SearchAction", "Tombol Search ditekan")
+                // Kamu bisa melakukan aksi pencarian di sini
+            }
         )
     )
 }

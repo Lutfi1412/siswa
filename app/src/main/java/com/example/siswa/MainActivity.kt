@@ -1,5 +1,6 @@
 package com.example.siswa
 
+import ImgUrl
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -7,10 +8,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +23,9 @@ class MainActivity : ComponentActivity() {
             // Atur warna status bar berdasarkan tema
             ChangeStatusBarColor()
             Column(
-                modifier = Modifier.systemBarsPadding()
+                modifier = Modifier
+                    .systemBarsPadding()
+                    .fillMaxSize()
             ) {
                 AppNavigasi()
             }

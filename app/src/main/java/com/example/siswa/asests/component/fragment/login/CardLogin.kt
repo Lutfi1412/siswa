@@ -1,7 +1,9 @@
 package com.example.siswa.asests.component.fragment.login
 
+import android.os.Build
 import validasiLogin
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -36,6 +38,7 @@ import com.example.siswa.asests.component.element.ButtonA
 import com.example.siswa.asests.component.element.KolomIput
 import com.example.siswa.ui.theme.Routes
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun CardLogin(navController: NavController){
     val fromProfile = false

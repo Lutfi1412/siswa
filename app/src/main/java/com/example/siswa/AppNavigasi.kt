@@ -1,7 +1,6 @@
 package com.example.siswa
 
 import android.util.Log
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -41,12 +40,13 @@ fun AppNavigasi() {
 
     LaunchedEffect(Unit) {
         coroutineScope.launch {
-            val token = getToken(context) // Get the token from SharedPreferences
+            val token = getToken(context)
+            Log.d("AppNavigasijay", "Token from SharedPreferences: ${token.toString()}")// Get the token from SharedPreferences
             if (token != null) {
                 isTokenValid = validateToken(token)
                 Log.d("isTokenValid", isTokenValid.toString())
             }
-            isLoading = false // Update loading state
+            isLoading = false
         }
     }
 
@@ -73,9 +73,27 @@ fun AppNavigasi() {
             composable(Routes.instruksi) {
                 Instruksi(navController)
             }
-            composable(Routes.kelas) {
-                Kelas(navController)
+
+            composable(
+                route = Routes.kelas + "?id={id}&desc={desc}&link_meet={link_meet}&created_by={created_by}&link_youtube={link_youtube}",
+                arguments = listOf(
+                    navArgument("id") { type = NavType.IntType },
+                    navArgument("desc") { type = NavType.StringType },
+                    navArgument("link_meet") { type = NavType.StringType },
+                    navArgument("created_by") { type = NavType.IntType },
+                    navArgument("link_youtube") { type = NavType.StringType; nullable = true } // Karena nullable
+                )
+            ) { backStackEntry ->
+                Kelas(
+                    navController = navController,
+                    id = backStackEntry.arguments?.getInt("id") ?: 0,
+                    desc = backStackEntry.arguments?.getString("desc") ?: "",
+                    linkMeet = backStackEntry.arguments?.getString("link_meet") ?: "",
+                    createdBy = backStackEntry.arguments?.getInt("created_by") ?: 0,
+                    link_youtube = backStackEntry.arguments?.getString("link_youtube")
+                )
             }
+
             composable(Routes.quiz) {
                 Quiz(navController)
             }

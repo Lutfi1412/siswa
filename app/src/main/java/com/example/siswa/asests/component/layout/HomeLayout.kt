@@ -4,6 +4,10 @@ package com.example.siswa.asests.component.layout
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
@@ -27,10 +31,11 @@ fun HomeLayout(
     modifier: Modifier = Modifier
 ) {
     val scrollState = rememberLazyListState()
+    var searchQuery by remember { mutableStateOf("") }
 
     Box (modifier){
-        ContentHome(scrollState, navController)
-        HeaderHome(scrollState, navController)
+        ContentHome(scrollState, navController, searchQuery = searchQuery)
+        HeaderHome(scrollState, navController, searchQuery, onSearchQueryChange = { searchQuery = it })
     }
 }
 

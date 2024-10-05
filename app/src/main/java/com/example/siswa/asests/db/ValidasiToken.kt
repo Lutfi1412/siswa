@@ -1,6 +1,7 @@
 package com.example.siswa.asests.db
 
 import android.util.Log
+import com.example.siswa.asests.component.fragment.profile.UserViewModel
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -30,10 +31,11 @@ suspend fun validateToken(token: String): Boolean {
             }
         }
         Log.d("is token valid", "validateToken: ${response.status.value == 200}")
-
         response.status.value == 200
     } catch (e: Exception) {
         Log.e("LoginError", "Login failed: ${e.message}", e)
+//        val userViewModel = UserViewModel()
+//        userViewModel.logout()
         false
     } finally {
         client.close()

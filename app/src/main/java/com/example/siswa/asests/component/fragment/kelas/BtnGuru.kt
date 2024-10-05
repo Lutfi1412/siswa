@@ -1,5 +1,7 @@
 package com.example.siswa.asests.component.fragment.kelas
 
+import android.content.Intent
+import android.net.Uri
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -7,8 +9,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -28,8 +32,9 @@ fun BtnGuru(
     ),
     colortext : Color = Color(0xFFFFFFFF),
     onclik: () -> Unit = {},
-    onclik2: () -> Unit = {}
+    onclik2: () -> Unit = {},
 ){
+
     Column (modifier = modifier) {
         ButtonA(
             onClick = {onclik()},

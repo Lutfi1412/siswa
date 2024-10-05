@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.firebase.crashlytics.buildtools)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -76,6 +77,10 @@ dependencies {
     implementation(kotlin("script-runtime"))
     implementation (libs.accompanist.insets)
 
+    //url img
+    implementation("io.coil-kt:coil-compose:2.0.0")
+
+    //fancy
     implementation("com.google.accompanist:accompanist-pager:0.30.0") // Ganti dengan versi terbaru
     implementation("com.google.accompanist:accompanist-pager-indicators:0.30.0")
 
@@ -91,11 +96,8 @@ dependencies {
     implementation("io.ktor:ktor-client-serialization:2.3.12")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 
-
-
-
-    //comparehash
-
+    //comparejwt
+    implementation(libs.java.jwt)
 
 
 }

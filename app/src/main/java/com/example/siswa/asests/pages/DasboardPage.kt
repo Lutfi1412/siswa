@@ -54,7 +54,7 @@ fun Dashboard(navController: NavController, fromProfile: Boolean = false) {
         if (homeVisible.value) {
             HomeLayout(modifier = Modifier.weight(1f), navController = navController)
         } else {
-            ProfileLayout(nis = "shjdhjs", nama = "jjhsj", navController)
+            ProfileLayout(navController)
         }
         FooterBtn(homeVisible = homeVisible)
     }

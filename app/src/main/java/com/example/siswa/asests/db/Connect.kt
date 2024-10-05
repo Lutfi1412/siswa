@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 class UsersViewModel : ViewModel() {
 
     private val supabaseUrl = "https://ijerrslgidofqvsfecgx.supabase.co"
-    private val supabaseKey =
+    val supabaseKey =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlqZXJyc2xnaWRvZnF2c2ZlY2d4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjY2NzczNzcsImV4cCI6MjA0MjI1MzM3N30.IPXmAJeqX_0QqgOrbgz3yoI7-2zYH0C4vyDkqX5VaiQ"
 
 

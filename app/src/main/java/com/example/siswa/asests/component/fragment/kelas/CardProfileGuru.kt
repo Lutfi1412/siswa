@@ -25,7 +25,6 @@ import com.example.siswa.ui.theme.SiswaTheme
 @Composable
 fun ProfileGuru (
     textjudul: String,
-    textdecs: String,
     painter: Painter,
     modifier: Modifier = Modifier){
 
@@ -47,17 +46,17 @@ fun ProfileGuru (
             modifier = Modifier.weight(1f)
         ) {
             TextD(textRes = textjudul, size = 16, modifier = Modifier)
-            Spacer(modifier = Modifier.height(5.dp))
-            TextC(textRes = textdecs, size = 12, modifier = Modifier, colorHex = "#595854")
+//            Spacer(modifier = Modifier.height(5.dp))
+//            TextC(textRes = textdecs, size = 12, modifier = Modifier, colorHex = "#595854")
         }
     }
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun PreviewBack() {
-    SiswaTheme {
-        ProfileGuru("jksjks", "aksak", painterResource(id = R.drawable.anime), modifier = Modifier)
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun PreviewBack() {
+//    SiswaTheme {
+//        ProfileGuru("jksjks", "aksak", painterResource(id = R.drawable.anime), modifier = Modifier)
+//    }
+//}
