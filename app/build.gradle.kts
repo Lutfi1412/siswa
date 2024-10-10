@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     kotlin("plugin.serialization") version "2.0.20"
+
+    //htmlkapt
+    id("kotlin-kapt")
 }
 
 android {
@@ -65,6 +68,7 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.firebase.crashlytics.buildtools)
+    implementation(libs.volley)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -98,6 +102,10 @@ dependencies {
 
     //comparejwt
     implementation(libs.java.jwt)
+
+    //html
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+    kapt("com.github.bumptech.glide:compiler:4.15.1")// Versi terbaru Glide
 
 
 }

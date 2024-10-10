@@ -16,6 +16,7 @@ navigationCompose = "2.8.0"
 roomKtx = "2.6.1"
 appcompat = "1.7.0"
 firebaseCrashlyticsBuildtools = "3.0.2"
+volley = "1.2.1"
 
 [libraries]
 accompanist-insets = { module = "com.google.accompanist:accompanist-insets", version.ref = "accompanistInsets" }
@@ -40,6 +41,7 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 firebase-crashlytics-buildtools = { group = "com.google.firebase", name = "firebase-crashlytics-buildtools", version.ref = "firebaseCrashlyticsBuildtools" }
+volley = { group = "com.android.volley", name = "volley", version.ref = "volley" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

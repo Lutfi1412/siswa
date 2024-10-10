@@ -45,3 +45,10 @@ data class getNameTeacher(val id: Int, val username: String)
 
 @Serializable
 data class getNameQuiz(val id: Int, val title: String, val description: String, val class_id: Int)
+
+@Serializable
+data class Answer(
+    val question: String,
+    var selectedOption: String
+)
+
