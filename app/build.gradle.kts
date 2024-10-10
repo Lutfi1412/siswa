@@ -81,6 +81,8 @@ dependencies {
     implementation(kotlin("script-runtime"))
     implementation (libs.accompanist.insets)
 
+    implementation("io.coil-kt:coil-compose:2.1.0")
+
     //url img
     implementation("io.coil-kt:coil-compose:2.0.0")
 

@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -312,7 +313,7 @@ fun CardQuiz2(quiz: Quiz, userResponse: ResponUser, onAnswerSelected: (String) -
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(vertical = 4.dp),
-                        verticalAlignment = Alignment.CenterVertically // Untuk menyelaraskan radio button dengan teks
+                        verticalAlignment = Alignment.Top, // Untuk menyelaraskan radio button dengan teks
                     ) {
                         RadioButton(
                             selected = selectedOption == option,
